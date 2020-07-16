@@ -40,8 +40,9 @@ This module is to be added to OSTicket system. Kindly follow the next steps to a
     }
     ```
 
-    c. Add ```$this->alertUser();``` to the end of ```function setStatus``` before it’s return.
-d. Add ```$this->onNewTicketSMSAlert();``` to the end of ```function onNewTicket``` before it’s return.
+4. Add ```$this->alertUser();``` to the end of ```function setStatus``` before it’s return.
+5. Add ```$this->onNewTicketSMSAlert();``` to the end of ```function onNewTicket``` before it’s return.
+
 - In the above steps it was suppose that moceanapi it the name of module directory
 dropped in the osticket source code.
 - This module uses exactly osticket database and tables, also the database username & password. No need to change anything in the module until and unless you want to customize it
