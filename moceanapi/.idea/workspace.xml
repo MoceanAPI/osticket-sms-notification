@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4cc60bd7-5462-451c-ac0e-e2a69a94d5a0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/moceanapi.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/sms_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/html/sms_settings.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1eKGDLEJboznZm3bwH7CDdmoULe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/class" />
+      <recent name="$PROJECT_DIR$/htmls" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4cc60bd7-5462-451c-ac0e-e2a69a94d5a0" name="Default Changelist" comment="" />
+      <created>1594062750029</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594062750029</updated>
+      <workItem from="1594062754229" duration="13810000" />
+      <workItem from="1594225988302" duration="20299000" />
+      <workItem from="1594304975513" duration="235000" />
+      <workItem from="1594324409768" duration="16000" />
+      <workItem from="1594325403503" duration="330000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="126" y="286" key="#SQL_Dialects" timestamp="1594230151935">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="126" y="286" key="#SQL_Dialects/0.0.1440.900@0.0.1440.900" timestamp="1594230151935" />
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594226668180">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1594226668180" />
+    <state x="503" y="211" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1594255708275">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="503" y="211" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1594255708275" />
+    <state x="404" y="183" key="NewPhpClassDialog" timestamp="1594251858839">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="404" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1594251858839" />
+    <state x="543" y="380" key="NewPhpFileDialog" timestamp="1594243628648">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="543" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1594243628648" />
+    <state x="427" y="82" width="586" height="735" key="find.popup" timestamp="1594251924638">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="427" y="82" width="586" height="735" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1594251924638" />
+    <state x="551" y="247" key="refactoring.ChangeSignatureDialog" timestamp="1594245338763">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="551" y="247" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1594245338763" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1594255798007">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1594255798007" />
+  </component>
+</project>
