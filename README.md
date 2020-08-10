@@ -4,9 +4,10 @@ This module is to be added to OSTicket system. Kindly follow the next steps to a
 1. Download and extract module source code
 2. Drop module directory into OSTicket source code root directory
 3. Make the following changes in the OSTicket source code:
+
     a. Add this line to the beginning of class.ticket.php file (/osticket/include/class.ticket.php) :
-        ```include_once(dirname(__FILE__).'/../corephp_snm/class/SMSNotifi
- cation.php');```
+        ```include_once(dirname(__FILE__).'/../moceanapi/class/SMSNotification.php');```
+        
     b. Add the following functions to the Ticket class in class.ticket.php file:
     ```
     function alertUser() {
