@@ -55,3 +55,5 @@ Now, if your domain is example.com, you can access module settings in the follow
 
 * Please note that it is necessary to have osticket run to be able to access this module.
 the complete process and module developed based on the PDF you provided and applied to OSticket
+
+Try for FREE now. 20 trial SMS credits will be given upon [registration](https://dashboard.moceanapi.com/register?fr=osticket). Additional SMS credits can be requested and is subject to approval by MoceanAPI
