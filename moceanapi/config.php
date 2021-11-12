@@ -43,24 +43,11 @@ function checkLogSource() {
      message text,
      receivers text,
      response text,
-     logged_at DATETIME DEFAULT NOW());";
+     logged_at DATETIME DEFAULT NULL);";
 
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $stmt->closeCursor();
-
-    $sql_drop_trigger = "DROP TRIGGER IF EXISTS moceanapi_updateLoggedAt_OnInsert;";
-
-    $stmt2 = $db->prepare($sql_drop_trigger);
-    $stmt2->execute();
-    $stmt2->closeCursor();
-
-    $sql_trigger = "CREATE TRIGGER moceanapi_updateLoggedAt_OnInsert BEFORE INSERT ON $db_sms_logs_table
-            FOR EACH ROW SET NEW.logged_at = IFNULL(NEW.logged_at, NOW());";
-
-    $stmt3 = $db->prepare($sql_trigger);
-    $stmt3->execute();
-    $stmt3->closeCursor();
 }
 
 function checkDatasource() {
@@ -129,7 +116,7 @@ function logSMS($receivers,$message,$response) {
     $db = $GLOBALS["db"];
     $db_sms_logs_table = $GLOBALS["db_sms_logs_table"];
 
-    $query = "INSERT INTO $db_sms_logs_table (message,receivers,response) values ('{$message}','{$receivers}','{$response}')";
+    $query = "INSERT INTO $db_sms_logs_table (message,receivers,response,logged_at) values ('{$message}','{$receivers}','{$response}', NOW())";
     $stmt = $db->prepare($query);
     $stmt->execute();
     $stmt->closeCursor();
