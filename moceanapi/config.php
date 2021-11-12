@@ -40,14 +40,27 @@ function checkLogSource() {
     $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql ="CREATE TABLE  IF NOT EXISTS $db_sms_logs_table (
      ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-     message text, 
+     message text,
      receivers text,
-     response text, 
+     response text,
      logged_at DATETIME DEFAULT NOW());";
 
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $stmt->closeCursor();
+
+    $sql_drop_trigger = "DROP TRIGGER IF EXISTS moceanapi_updateLoggedAt_OnInsert;";
+
+    $stmt2 = $db->prepare($sql_drop_trigger);
+    $stmt2->execute();
+    $stmt2->closeCursor();
+
+    $sql_trigger = "CREATE TRIGGER moceanapi_updateLoggedAt_OnInsert BEFORE INSERT ON $db_sms_logs_table
+            FOR EACH ROW SET NEW.logged_at = IFNULL(NEW.logged_at, NOW());";
+
+    $stmt3 = $db->prepare($sql_trigger);
+    $stmt3->execute();
+    $stmt3->closeCursor();
 }
 
 function checkDatasource() {
@@ -61,12 +74,12 @@ function checkDatasource() {
     $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql ="CREATE TABLE  IF NOT EXISTS $db_sms_table (
      ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-     ".$sms_settings_keys[0]." text, 
+     ".$sms_settings_keys[0]." text,
      ".$sms_settings_keys[1]." text,
-     ".$sms_settings_keys[2]." text, 
-    
-     ".$admin_settings_keys[0]." TINYINT( 1 ), 
-     ".$admin_settings_keys[1]." text, 
+     ".$sms_settings_keys[2]." text,
+
+     ".$admin_settings_keys[0]." TINYINT( 1 ),
+     ".$admin_settings_keys[1]." text,
      ".$admin_settings_keys[2]." text,";
 
     for ($i=0 ; $i < count($status_settings_keys) ; $i++) {
