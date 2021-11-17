@@ -1,6 +1,7 @@
 <?php
 // ToDo: xxx -> check the path
 require_once(dirname(__FILE__).'/../main.inc.php');
+
 if(!defined('INCLUDE_DIR')) die('Fatal Error. Kwaheri!');
 
 $GLOBALS["db_sms_table"] = $db_sms_table = "ost_sms_configs";
@@ -43,7 +44,7 @@ function checkLogSource() {
      message text,
      receivers text,
      response text,
-     logged_at DATETIME DEFAULT NULL);";
+     logged_at DATETIME DEFAULT 0);";
 
     $stmt = $db->prepare($sql);
     $stmt->execute();
