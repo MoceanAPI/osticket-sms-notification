@@ -1,6 +1,7 @@
 <?php
 // ToDo: xxx -> check the path
 require_once(dirname(__FILE__).'/../main.inc.php');
+
 if(!defined('INCLUDE_DIR')) die('Fatal Error. Kwaheri!');
 
 $GLOBALS["db_sms_table"] = $db_sms_table = "ost_sms_configs";
@@ -40,10 +41,10 @@ function checkLogSource() {
     $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql ="CREATE TABLE  IF NOT EXISTS $db_sms_logs_table (
      ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-     message text, 
+     message text,
      receivers text,
-     response text, 
-     logged_at DATETIME DEFAULT NOW());";
+     response text,
+     logged_at DATETIME DEFAULT 0);";
 
     $stmt = $db->prepare($sql);
     $stmt->execute();
@@ -61,12 +62,12 @@ function checkDatasource() {
     $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     $sql ="CREATE TABLE  IF NOT EXISTS $db_sms_table (
      ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-     ".$sms_settings_keys[0]." text, 
+     ".$sms_settings_keys[0]." text,
      ".$sms_settings_keys[1]." text,
-     ".$sms_settings_keys[2]." text, 
-    
-     ".$admin_settings_keys[0]." TINYINT( 1 ), 
-     ".$admin_settings_keys[1]." text, 
+     ".$sms_settings_keys[2]." text,
+
+     ".$admin_settings_keys[0]." TINYINT( 1 ),
+     ".$admin_settings_keys[1]." text,
      ".$admin_settings_keys[2]." text,";
 
     for ($i=0 ; $i < count($status_settings_keys) ; $i++) {
@@ -116,7 +117,7 @@ function logSMS($receivers,$message,$response) {
     $db = $GLOBALS["db"];
     $db_sms_logs_table = $GLOBALS["db_sms_logs_table"];
 
-    $query = "INSERT INTO $db_sms_logs_table (message,receivers,response) values ('{$message}','{$receivers}','{$response}')";
+    $query = "INSERT INTO $db_sms_logs_table (message,receivers,response,logged_at) values ('{$message}','{$receivers}','{$response}', NOW())";
     $stmt = $db->prepare($query);
     $stmt->execute();
     $stmt->closeCursor();
