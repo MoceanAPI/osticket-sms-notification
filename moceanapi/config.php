@@ -44,7 +44,7 @@ function checkLogSource() {
      message text,
      receivers text,
      response text,
-     logged_at DATETIME DEFAULT 0);";
+     logged_at DATETIME DEFAULT NULL);";
 
     $stmt = $db->prepare($sql);
     $stmt->execute();
