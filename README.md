@@ -45,14 +45,18 @@ This module is to be added to OSTicket system. Kindly follow the next steps to a
     }
     ```
 4. Add ```$this->alertUser();``` to the end of ```function setStatus``` before it’s return.
-5. Add ```$this->onNewTicketSMSAlert();``` to the end of ```function onNewTicket``` before it’s return.
-6. Add ```$this->alertUser($isanswered === 1 ? 'answered' : 'unanswered');``` to the beginning of ```function setAnsweredState```.
-7. Add ```$this->alertUser('overdue');``` to the end of ```function markOverdue``` before it's return.
-8. Add ```$this->alertUser('notdue');``` to the end of ```function clearOverdue``` before it's return.
-9. Add ```$this->alertUser('assigned');``` to the end of ```function assign``` before it's return
-10. Add ```$this->alertUser('unassined');``` to the beginning of ```function release```
-11. Add ```$this->alertUser('deleted');``` to the end of ```function delete``` before it's return
-12. Add ```$this->alertUser('locked');``` to the end of ```function acquireLock``` before it's return
+5. Add below code snippet to the end of ```function onNewTicket``` before it’s return.
+```php
+$this->alertUser("open");
+$this->onNewTicketSMSAlert(); 
+``` 
+7. Add ```$this->alertUser($isanswered === 1 ? 'answered' : 'unanswered');``` to the beginning of ```function setAnsweredState```.
+8. Add ```$this->alertUser('overdue');``` to the end of ```function markOverdue``` before it's return.
+9. Add ```$this->alertUser('notdue');``` to the end of ```function clearOverdue``` before it's return.
+10. Add ```$this->alertUser('assigned');``` to the end of ```function assign``` before it's return
+11. Add ```$this->alertUser('unassined');``` to the beginning of ```function release```
+12. Add ```$this->alertUser('deleted');``` to the end of ```function delete``` before it's return
+13. Add ```$this->alertUser('locked');``` to the end of ```function acquireLock``` before it's return
 - In the above steps it was suppose that moceanapi it the name of module directory
 dropped in the osticket source code.
 - This module uses exactly osticket database and tables, also the database username & password. No need to change anything in the module until and unless you want to customize it
