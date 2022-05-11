@@ -1,5 +1,6 @@
 <?php
 require_once("config.php");
+require_once("../scp/admin.inc.php");
 
 if (isset($_GET["export_logs"])) {
     $logs = collectSMSLogs();
