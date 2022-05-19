@@ -8,7 +8,7 @@ global $body,$default_values;
         <div class="main">
             <form class="form" method="post">
                 <input type="hidden" value="admin_settings" id="type" name="type"/>
-
+                <?php csrf_token(); ?>
                 <div class="form-group row">
                     <div class="col-sm-2">
                         <label for="admin_sms_enabled">Enable Admin SMS Notification</label>

@@ -135,6 +135,10 @@ function updateConfigsWithColumns($values) {
 
     $query = "UPDATE $db_sms_table SET ";
     foreach ($values as $key => $value) {
+        /*
+            @since customer complaint on 17 May 2022
+        */
+        if($key === '__CSRFToken__') { continue; }
         if ($key !== "type") {
             $query .= "$key = '$value' ,";
         }

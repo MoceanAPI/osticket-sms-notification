@@ -9,7 +9,7 @@ global $body,$default_values,$status_settings_keys;
             <form class="form" method="post">
                 <div class="form-group row">
                     <input type="hidden" value="customer_settings" id="type" name="type"/>
-
+                    <?php csrf_token(); ?>
                     <div class="col-sm-2">
                         <label>Send Notification On</label>
                     </div>

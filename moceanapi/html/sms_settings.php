@@ -7,6 +7,7 @@ global $body,$default_values;
     <div class="main_sms">
         <form class="form" method="post">
             <input type="hidden" value="sms_settings" id="type" name="type"/>
+            <?php csrf_token(); ?>
             <div class="form-group row">
                 <div class="col-sm-2">
                     <label for="mocean_api_key">API Key</label>
