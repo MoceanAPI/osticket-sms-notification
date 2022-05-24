@@ -11,7 +11,7 @@ This module is to be added to OSTicket system. Kindly follow the next steps to a
     b. Add the following functions to the Ticket class in class.ticket.php file:
     ```
     function alertUser($status = '') {
-        $sms_notification = new SMSNotification();
+        $sms_notification = SMSNotification::getInstance();
         $phone = $this->getPhoneNumber();
 
         if(empty($status)) {
@@ -24,21 +24,21 @@ This module is to be added to OSTicket system. Kindly follow the next steps to a
             "[lastupdate]"=>$this->ht["updated"],
             "[user_full_name]"=>$this->ht["user"]->ht["name"],
             "[user_phone]"=>$phone,
-            "[last_staff_name]"=>$this->ht["staff"]->ht["firstname"]." ".$this->ht["staff"]->ht["lastname"],
+            "[last_staff_name]"=>$this->getStaff()->ht["firstname"]." ".$this->getStaff()->ht["lastname"],
             "[department]"=>$this->ht["dept"]->ht["name"]
         ];
 
         $sms_notification->trigger_status_notification($phone, $status, $replacements);
     }
     function onNewTicketSMSAlert() {
-       $sms_notification = new SMSNotification();
+       $sms_notification = SMSNotification::getInstance();
        $status = $this->getStatus();
        $replacements = [
            "[ticket_status]"=>$status->getState(),
            "[ticket_number]"=>$this->ht["number"],
            "[lastupdate]"=>$this->ht["updated"],
            "[user_full_name]"=>$this->ht["user"]->ht["name"],
-           "[last_staff_name]"=>$this->ht["staff"]->ht["firstname"]." ".$this->ht["staff"]->ht["lastname"],
+           "[last_staff_name]"=>$this->getStaff()->ht["firstname"]." ".$this->getStaff()->ht["lastname"],
            "[department]"=>$this->ht["dept"]->ht["name"]
        ];
        $sms_notification->trigger_admin_notification($replacements);
@@ -48,8 +48,8 @@ This module is to be added to OSTicket system. Kindly follow the next steps to a
 5. Add below code snippet to the end of ```function onNewTicket``` before it’s return.
 ```php
 $this->alertUser("open");
-$this->onNewTicketSMSAlert(); 
-``` 
+$this->onNewTicketSMSAlert();
+```
 7. Add ```$this->alertUser($isanswered === 1 ? 'answered' : 'unanswered');``` to the beginning of ```function setAnsweredState```.
 8. Add ```$this->alertUser('overdue');``` to the end of ```function markOverdue``` before it's return.
 9. Add ```$this->alertUser('notdue');``` to the end of ```function clearOverdue``` before it's return.
@@ -57,6 +57,7 @@ $this->onNewTicketSMSAlert();
 11. Add ```$this->alertUser('unassined');``` to the beginning of ```function release```
 12. Add ```$this->alertUser('deleted');``` to the end of ```function delete``` before it's return
 13. Add ```$this->alertUser('locked');``` to the end of ```function acquireLock``` before it's return
+13. Add ```$this->alertUser("reopened");``` to the end of ```function reopen``` before it's return
 - In the above steps it was suppose that moceanapi it the name of module directory
 dropped in the osticket source code.
 - This module uses exactly osticket database and tables, also the database username & password. No need to change anything in the module until and unless you want to customize it

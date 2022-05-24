@@ -10,7 +10,26 @@ All error responses will be as follows:
 }
 */
 class SMSNotification {
-    public function __construct() {}
+
+    private static $instance = null;
+    private $currentState = '';
+
+    private function __construct() {}
+
+    public static function getInstance()
+    {
+        if (self::$instance == null)
+        {
+            self::$instance = new SMSNotification();
+        }
+
+        return self::$instance;
+    }
+
+    private function setState($state)
+    {
+        $this->currentState = $state;
+    }
 
     function trigger_admin_notification($replacements=[]) {
         $admin_settings_keys = $GLOBALS["admin_settings_keys"];
@@ -26,6 +45,10 @@ class SMSNotification {
     }
 
     function trigger_status_notification($phoneNo ,$onStatus, $replacements=[]) {
+        if($this->currentState == 'reopened') {
+            $this->setState('open');
+            return;
+        }
         $status_settings_keys = $GLOBALS["status_settings_keys"];
         $status_settings_message = $GLOBALS["status_settings_message"];
 
@@ -41,6 +64,7 @@ class SMSNotification {
             $message = $this->replaceKeywordsWithValue($replacements,$configs[$status_settings_message[$status]]);
             /* status:0 means sent otherwise take a look at: https://moceanapi.com/docs/#send-sms */
             $response = $this->send_sms($phoneNo, $message);
+            $this->setState($onStatus); // reopened
             return $response;
         }
         $response["status"] = 400;
@@ -86,7 +110,9 @@ class SMSNotification {
       "err_msg": "Authorization failed"
     }
     */
-    private function send_sms($phone_no, $message) {
+    public function send_sms($phone_no, $message, $from='') {
+        logSMS($phone_no, $message, '');
+        return true;
         if ($message == '') {
             $response["status"] = 400;
             $response["err_msg"] = "Text message is empty!";
@@ -96,10 +122,11 @@ class SMSNotification {
 
         $sms_settings_keys = $GLOBALS["sms_settings_keys"];
         $configs = $this->loadValue($sms_settings_keys);
+        $from = (!empty($from) ? $from : $configs[$sms_settings_keys[2]] );
         try {
             $moceansms_rest = new MoceanSMS( $configs[$sms_settings_keys[0]], $configs[$sms_settings_keys[1]] );
             $response = $moceansms_rest->sendSMS(
-                    $configs[$sms_settings_keys[2]],
+                    $from,
                     $phone_no,
                     $message,
                     'MoceanSMSPligin');

@@ -8,6 +8,7 @@ global $body;
         <button class="tablinks <?php if ($body['type'] == 'sms_settings') { echo 'active';} ?>" onclick="activeTab(event, 'sms_settings')">MoceanAPI Settings</button>
         <button class="tablinks <?php if ($body['type'] == 'admin_settings') { echo 'active';} ?>" onclick="activeTab(event, 'admin_settings')">Admin Settings</button>
         <button class="tablinks <?php if ($body['type'] == 'customer_settings') { echo 'active';} ?>" onclick="activeTab(event, 'customer_settings')">Customer Settings </button>
+        <button class="tablinks <?php if ($body['type'] == 'send_sms') { echo 'active';} ?>" onclick="activeTab(event, 'send_sms')">Send SMS </button>
     </div>
 </div>
 
