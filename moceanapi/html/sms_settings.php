@@ -35,6 +35,14 @@ global $body,$default_values;
                     <small id="mocean_msg_from_help" class="form-text text-muted">Sender of the SMS when a message is received at a mobile phone.</small>
                 </div>
             </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <label for="feedback_link"></label>
+                </div>
+                <div class="col-sm-5">
+                    <a href="https://bit.ly/3vHb4HT" target="_blank" rel="noopener noreferrer" id="feedback_link">Send us your feedback!</a>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 

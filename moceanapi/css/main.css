@@ -1,0 +1,47 @@
+.cc-floating {
+    max-width: 32%;
+    height: fit-content;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--white);
+    transition: all 0.4s ease-in;
+    margin: auto;
+    color: var(--black);
+    border-radius: 12px;
+    align-content: space-around;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .mc-consent-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(128, 128, 128, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .fadeOutBottomRight{
+      animation: fadeOutBottomRight 1.0s forwards;
+      animation-duration: 2.0s;
+  }
+
+  @keyframes fadeOutBottomRight{
+    0%{
+      opacity:1;
+      transform: translate(0);
+    }
+    100%{
+      opacity: 0;
+      transform: translateY(2500px) translateX(calc(100% + 250vw));
+    }
+  }
